@@ -88,11 +88,11 @@
 	[self.tableView registerClass:UITableViewCell.class forCellReuseIdentifier:UITableViewCell.description];
 	[bgView addSubview:self.tableView];
 //
-	UIView *headView = [UIView.alloc initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 72 * 3)];
+	UIView *headView = [UIView.alloc initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 72 * 4)];
 	headView.backgroundColor = UIColor.clearColor;
 	self.tableView.tableHeaderView = headView;
 
-	UIView *footView = [UIView.alloc initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 72 * 3)];
+	UIView *footView = [UIView.alloc initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 72 * 4)];
 	footView.backgroundColor = UIColor.clearColor;
 	self.tableView.tableFooterView = footView;
 	
@@ -107,11 +107,11 @@
 	[self.tableView2 registerClass:UITableViewCell.class forCellReuseIdentifier:UITableViewCell.description];
 	[self.view addSubview:self.tableView2];
 	
-	UIView *headView1 = [UIView.alloc initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 72 * 3)];
+	UIView *headView1 = [UIView.alloc initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 72 * 4)];
 	headView.backgroundColor = UIColor.clearColor;
 	self.tableView2.tableHeaderView = headView1;
 
-	UIView *footView1 = [UIView.alloc initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 72 * 3)];
+	UIView *footView1 = [UIView.alloc initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 72 * 4)];
 	footView.backgroundColor = UIColor.clearColor;
 	self.tableView2.tableFooterView = footView1;
 
@@ -129,15 +129,26 @@
 //	layer.lineWidth = 5;
 
 	CAGradientLayer *gradientLayer = CAGradientLayer.layer;
-	gradientLayer.colors = @[(id)[UIColor redColor].CGColor, (id)UIColor.greenColor.CGColor];
+	//gradientLayer.colors = @[(id)[UIColor redColor].CGColor, (id)UIColor.greenColor.CGColor];
+    gradientLayer.backgroundColor = UIColor.blackColor.CGColor;
 	gradientLayer.startPoint = CGPointMake(0, 0);
 	gradientLayer.endPoint = CGPointMake(0, 1);
 	gradientLayer.frame = CGRectMake(0, 55 + 64, self.view.frame.size.width, self.view.frame.size.height - 56 - 115 - 64 - 12);
 	[self.view.layer addSublayer:gradientLayer];
-	//[bgView.layer addSublayer:gradientLayer];
+//	[bgView.layer addSublayer:gradientLayer];
 	//gradientLayer.mask = bgView.layer;
 	gradientLayer.mask = bgView.layer;
 	bgView.frame = gradientLayer.bounds;
+    
+    
+    CALayer *redLayer = CALayer.layer;
+    redLayer.backgroundColor = UIColor.redColor.CGColor;
+//    redLayer.anchorPoint = CGPointMake(0, 0);
+//    redLayer.position = CGPointMake(0, 0);
+    redLayer.bounds = CGRectMake(0, 0, self.view.frame.size.width, 60);
+    redLayer.affineTransform = CGAffineTransformMakeTranslation(0, gradientLayer.bounds.size.height * 0.5);
+//    redLayer.position = gradientLayer.position;
+    [gradientLayer addSublayer:redLayer];
 }
 
 #pragma mark - UITalbeViewDelegate, UITableViewDataSource
