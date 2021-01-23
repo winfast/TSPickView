@@ -18,7 +18,7 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-	UIViewController *vc = [[NSClassFromString(@"ViewController") alloc] init];
+	UIViewController *vc = [[NSClassFromString(@"GHViewController") alloc] init];
 	UINavigationController *nav = [UINavigationController.alloc initWithRootViewController:vc];
 	self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
 	self.window.rootViewController = nav;

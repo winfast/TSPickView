@@ -12,6 +12,8 @@
 		042AD48424CEB3F900FBD029 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 042AD48324CEB3F900FBD029 /* Assets.xcassets */; };
 		042AD48724CEB3F900FBD029 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 042AD48524CEB3F900FBD029 /* LaunchScreen.storyboard */; };
 		042AD48A24CEB3F900FBD029 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 042AD48924CEB3F900FBD029 /* main.m */; };
+		046E226225BC00720050AD8B /* TSColorLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 046E226125BC00720050AD8B /* TSColorLabel.m */; };
+		04DF1E8E25B95AD400363D92 /* GHViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 04DF1E8D25B95AD400363D92 /* GHViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,10 @@
 		042AD48624CEB3F900FBD029 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		042AD48824CEB3F900FBD029 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		042AD48924CEB3F900FBD029 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		046E226025BC00720050AD8B /* TSColorLabel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TSColorLabel.h; sourceTree = "<group>"; };
+		046E226125BC00720050AD8B /* TSColorLabel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TSColorLabel.m; sourceTree = "<group>"; };
+		04DF1E8C25B95AD400363D92 /* GHViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GHViewController.h; sourceTree = "<group>"; };
+		04DF1E8D25B95AD400363D92 /* GHViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GHViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +62,8 @@
 		042AD47624CEB3F200FBD029 /* TSPickView */ = {
 			isa = PBXGroup;
 			children = (
+				04DF1E8C25B95AD400363D92 /* GHViewController.h */,
+				04DF1E8D25B95AD400363D92 /* GHViewController.m */,
 				042AD47724CEB3F200FBD029 /* AppDelegate.h */,
 				042AD47824CEB3F200FBD029 /* AppDelegate.m */,
 				042AD47D24CEB3F200FBD029 /* ViewController.h */,
@@ -64,6 +72,8 @@
 				042AD48524CEB3F900FBD029 /* LaunchScreen.storyboard */,
 				042AD48824CEB3F900FBD029 /* Info.plist */,
 				042AD48924CEB3F900FBD029 /* main.m */,
+				046E226025BC00720050AD8B /* TSColorLabel.h */,
+				046E226125BC00720050AD8B /* TSColorLabel.m */,
 			);
 			path = TSPickView;
 			sourceTree = "<group>";
@@ -137,9 +147,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				046E226225BC00720050AD8B /* TSColorLabel.m in Sources */,
 				042AD47F24CEB3F200FBD029 /* ViewController.m in Sources */,
 				042AD47924CEB3F200FBD029 /* AppDelegate.m in Sources */,
 				042AD48A24CEB3F900FBD029 /* main.m in Sources */,
+				04DF1E8E25B95AD400363D92 /* GHViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

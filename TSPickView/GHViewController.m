@@ -7,11 +7,14 @@
 //  文字变色动画 简单来说 在进度的过程中 有一部分文字浅色，有一部分深色
 
 #import "GHViewController.h"
+#import "TSColorLabel.h"
 
 @interface GHViewController ()
 
 @property (nonatomic, strong) CALayer *progressLayer;
 @property (nonatomic) BOOL dir;
+
+@property (nonatomic, strong) TSColorLabel *label;
 
 @end
 
@@ -19,8 +22,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     self.view.backgroundColor = UIColor.whiteColor;
+    
+    self.label = [TSColorLabel.alloc initWithFrame:CGRectMake(10, 100, 200, 44)];
+    self.label.backgroundColor = UIColor.whiteColor;
+    self.label.layer.cornerRadius = 22;
+    self.label.layer.borderColor = UIColor.redColor.CGColor;
+    self.label.layer.masksToBounds = YES;
+    self.label.layer.borderWidth = 0.5;
+    [self.view addSubview:self.label];
+    
+    return;
+    
+    
   //   Do any additional setup after loading the view.
     self.dir = NO;
     
@@ -80,7 +94,7 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
     self.dir = !self.dir;
-    [self startProgressLayer:self.dir];
+    [self.label startProgressLayer:self.dir];
 }
 
 
