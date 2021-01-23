@@ -40,8 +40,11 @@
     self.showProgressLayer.position = CGPointMake(0, 0);
     self.showProgressLayer.frame = CGRectMake(0, 0, 0, self.bounds.size.height);
     self.showProgressLayer.backgroundColor = UIColor.grayColor.CGColor;
+    self.showProgressLayer.anchorPoint = CGPointMake(0, 0);
+    self.showProgressLayer.position = CGPointMake(0, 0);
     [self.layer addSublayer:self.showProgressLayer];
     
+    //显示文本特殊颜色的Mask层， 可以换成其他的mask， 比如渐变， 形状 等等
     self.maskLayer = CALayer.layer;
     self.maskLayer.backgroundColor = UIColor.redColor.CGColor;
     self.maskLayer.frame = self.bounds;
@@ -53,6 +56,8 @@
     self.progressLayer.position = CGPointMake(0, 0);
     self.progressLayer.frame = CGRectMake(0, 0, 0, self.bounds.size.height);
     self.progressLayer.backgroundColor = UIColor.blackColor.CGColor;
+    self.progressLayer.anchorPoint = CGPointMake(0, 0);
+    self.progressLayer.position = CGPointMake(0, 0);
     [self.maskLayer addSublayer:self.progressLayer];
     
     self.textLabel = [UILabel.alloc initWithFrame:self.bounds];
