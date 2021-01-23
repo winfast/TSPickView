@@ -15,6 +15,10 @@
 
 @property (nonatomic, strong) CALayer *showProgressLayer;
 
+@property (nonatomic, strong) UILabel *textLabel;
+
+@property (nonatomic, strong) CALayer *maskLayer;
+
 @end
 
 @implementation TSColorLabel
@@ -38,10 +42,10 @@
     self.showProgressLayer.backgroundColor = UIColor.grayColor.CGColor;
     [self.layer addSublayer:self.showProgressLayer];
     
-    CALayer *maskLayer = CALayer.layer;
-    maskLayer.backgroundColor = UIColor.redColor.CGColor;
-    maskLayer.frame = self.bounds;
-    [self.layer addSublayer:maskLayer];
+    self.maskLayer = CALayer.layer;
+    self.maskLayer.backgroundColor = UIColor.redColor.CGColor;
+    self.maskLayer.frame = self.bounds;
+    [self.layer addSublayer:self.maskLayer];
     
     //给maskLayer设置的进度颜色
     self.progressLayer = CALayer.layer;
@@ -49,22 +53,20 @@
     self.progressLayer.position = CGPointMake(0, 0);
     self.progressLayer.frame = CGRectMake(0, 0, 0, self.bounds.size.height);
     self.progressLayer.backgroundColor = UIColor.blackColor.CGColor;
-    [maskLayer addSublayer:self.progressLayer];
+    [self.maskLayer addSublayer:self.progressLayer];
     
-    UILabel *text = [UILabel.alloc initWithFrame:self.bounds];
-    text.textColor = UIColor.blackColor;
-    text.textAlignment = NSTextAlignmentCenter;
-    text.text = @"50%";
-    [self addSubview:text];
+    self.textLabel = [UILabel.alloc initWithFrame:self.bounds];
+    self.textLabel.textColor = UIColor.blackColor;
+    self.textLabel.textAlignment = NSTextAlignmentCenter;
+    self.textLabel.text = @"50%";
+    [self addSubview:self.textLabel];
     
-    maskLayer.mask = text.layer;
+    self.maskLayer.mask = self.textLabel.layer;
     
     //这一步很重要
     //5. 一旦把label层设置为mask层，label层就不能显示了,会直接从父层中移除
     // 父层改了，坐标系也就改了，需要重新设置label的位置，才能正确的设置裁剪区域。
-    text.frame = maskLayer.bounds;
-    
- 
+    self.textLabel.frame = self.maskLayer.bounds;
 }
 
 
