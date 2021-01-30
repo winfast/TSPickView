@@ -9,6 +9,39 @@
 #import "GHViewController.h"
 #import "TSColorLabel.h"
 
+@interface TestFunction : NSObject
+
+- (NSInteger)getNumber;
+
+- (NSInteger)getFirstPos:(NSInteger)v1 v2:(NSInteger)v2;
+
+- (NSInteger)getFirstPostion:(NSInteger)v1 v2:(NSInteger(^)(void))v2 ;
+
+@end
+
+@implementation TestFunction
+
+- (NSInteger)getNumber {
+    NSInteger a = 10;
+    NSInteger b = 20;
+    NSLog(@"getNumber");
+    return a + b;
+}
+
+- (NSInteger)getFirstPos:(NSInteger)v1 v2:(NSInteger)v2 {
+    if (v1 > 0) {
+        return v1;
+    }
+    return v2;
+}
+
+- (NSInteger)getFirstPostion:(NSInteger)v1 v2:(NSInteger(^)(void))v2 {
+    return v1 > 0 ? v1 : v2();
+}
+
+@end
+
+
 @interface GHViewController ()
 
 @property (nonatomic, strong) CALayer *progressLayer;
@@ -24,18 +57,31 @@
     [super viewDidLoad];
     self.view.backgroundColor = UIColor.whiteColor;
     
-    self.label = [TSColorLabel.alloc initWithFrame:CGRectMake(10, 100, 150, 44)];
-    self.label.backgroundColor = UIColor.whiteColor;
-    self.label.layer.cornerRadius = 22;
-    self.label.layer.borderColor = UIColor.redColor.CGColor;
-    self.label.layer.masksToBounds = YES;
-    self.label.layer.borderWidth = 0.5;
     
-    self.label.textLabel.text = @"我的个神呀";
-    self.label.maskLayer.backgroundColor = UIColor.blackColor.CGColor;
-    self.label.progressLayer.backgroundColor = UIColor.redColor.CGColor;
-    self.label.showProgressLayer.backgroundColor = UIColor.yellowColor.CGColor;
-    [self.view addSubview:self.label];
+    TestFunction *test = TestFunction.alloc.init;
+    
+    [test getFirstPos:10 v2:[test getNumber]];
+    
+
+    [test getFirstPostion:10 v2:^NSInteger {
+        NSInteger a = 10;
+        NSInteger b = 20;
+        NSLog(@"calll");
+        return a + b;
+    }];
+    
+//    self.label = [TSColorLabel.alloc initWithFrame:CGRectMake(10, 100, 150, 44)];
+//    self.label.backgroundColor = UIColor.whiteColor;
+//    self.label.layer.cornerRadius = 22;
+//    self.label.layer.borderColor = UIColor.redColor.CGColor;
+//    self.label.layer.masksToBounds = YES;
+//    self.label.layer.borderWidth = 0.5;
+//
+//    self.label.textLabel.text = @"我的个神呀";
+//    self.label.maskLayer.backgroundColor = UIColor.blackColor.CGColor;
+//    self.label.progressLayer.backgroundColor = UIColor.redColor.CGColor;
+//    self.label.showProgressLayer.backgroundColor = UIColor.yellowColor.CGColor;
+//    [self.view addSubview:self.label];
     
     return;
     
