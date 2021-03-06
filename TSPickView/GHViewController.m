@@ -70,18 +70,18 @@
         return a + b;
     }];
     
-//    self.label = [TSColorLabel.alloc initWithFrame:CGRectMake(10, 100, 150, 44)];
-//    self.label.backgroundColor = UIColor.whiteColor;
-//    self.label.layer.cornerRadius = 22;
-//    self.label.layer.borderColor = UIColor.redColor.CGColor;
-//    self.label.layer.masksToBounds = YES;
-//    self.label.layer.borderWidth = 0.5;
-//
-//    self.label.textLabel.text = @"我的个神呀";
-//    self.label.maskLayer.backgroundColor = UIColor.blackColor.CGColor;
-//    self.label.progressLayer.backgroundColor = UIColor.redColor.CGColor;
-//    self.label.showProgressLayer.backgroundColor = UIColor.yellowColor.CGColor;
-//    [self.view addSubview:self.label];
+    self.label = [TSColorLabel.alloc initWithFrame:CGRectMake(10, 100, 150, 44)];
+    self.label.backgroundColor = UIColor.whiteColor;
+    self.label.layer.cornerRadius = 22;
+    self.label.layer.borderColor = UIColor.redColor.CGColor;
+    self.label.layer.masksToBounds = YES;
+    self.label.layer.borderWidth = 0.5;
+
+    self.label.textLabel.text = @"60%";
+    self.label.maskLayer.backgroundColor = UIColor.blackColor.CGColor;
+    self.label.progressLayer.backgroundColor = UIColor.redColor.CGColor;
+    self.label.showProgressLayer.backgroundColor = UIColor.yellowColor.CGColor;
+    [self.view addSubview:self.label];
     
     return;
     
